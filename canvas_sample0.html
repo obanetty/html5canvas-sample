@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Canvasを使ってみよう</title>
+    <style type="text/css">
+        canvas {border: 1px solid black; }
+    </style>
+
+    <script type="text/javascript">
+    window.onload = function(){
+        //canvasオブジェクトの取得
+        var canvas = document.getElementById('mycanvas');
+
+        //ブラウザがCanvasに対応していていなければ終了
+        if(!canvas.getContext){
+            return;
+        }
+
+        var context = canvas.getContext('2d');
+
+        //編集部分（ここに主な処理を書きます）
+
+    }
+    </script>
+</head>
+<body>
+    <canvas id="mycanvas" width="400" height="400">
+        このブラウザはCanvasに対応していません。
+    </canvas>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Canvasを使ってみよう</title>
+    <style type="text/css">
+        canvas {border: 1px solid black; }
+    </style>
+
+    <script type="text/javascript">
+    window.onload = function(){
+        var canvas = document.getElementById('mycanvas');
+        if(!canvas.getContext){
+            return;
+        }
+
+        var context = canvas.getContext('2d');
+
+        //フォント設定（太字、50px、serifフォント）
+        context.font = "bold 50px serif";
+
+        //枠線、塗りつぶし色指定
+        context.fillStyle = "black";
+
+        //表示文字列の横幅取得
+        message = "Hello Canvas!";
+        textWidth = context.measureText(message).width;
+
+        //文字列の幅に合わせて表示開始座標を計算 
+        var xpos = (canvas.width - textWidth) / 2;
+
+        //文字列表示
+        context.strokeText(message, xpos, 200);
+    }
+    </script>
+</head>
+<body>
+    <canvas id="mycanvas" width="400" height="400">
+        このブラウザはCanvasに対応していません。
+    </canvas>
+</body>
+</html>

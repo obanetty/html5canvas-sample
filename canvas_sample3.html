@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Canvasを使ってみよう</title>
+    <style type="text/css">
+        canvas {border: 1px solid black; }
+    </style>
+
+    <script type="text/javascript">
+    window.onload = function(){
+        var canvas = document.getElementById('mycanvas');
+        if(!canvas.getContext){
+            return;
+        }
+
+        var context = canvas.getContext('2d');
+
+        //線の色などのスタイルを指定
+        context.strokeStyle = "black";
+        context.lineWidth = 10;
+        context.lineCap = 'round';
+
+        //パスの開始
+        context.beginPath();
+
+        //描画開始座標
+        context.moveTo(0,0);
+
+        //移動先まで直線を引く
+        context.lineTo(100,100);
+
+        //次の移動先まで円弧を描く(300, 100), (300, 300), 半径200
+        context.arcTo(300, 100, 300, 300, 200);
+
+        //次の移動先まで二次ベジエ曲線 制御点(100, 250), 終点(200, 200)
+        context.quadraticCurveTo(250, 450, 200, 300);
+
+        //描画
+        context.fill();
+    }
+    </script>
+</head>
+<body>
+    <canvas id="mycanvas" width="400" height="400">
+        このブラウザはCanvasに対応していません。
+    </canvas>
+</body>
+</html>

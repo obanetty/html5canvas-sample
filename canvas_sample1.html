@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Canvasを使ってみよう</title>
+    <style type="text/css">
+        canvas {border: 1px solid black; }
+    </style>
+
+    <script type="text/javascript">
+    window.onload = function(){
+        var canvas = document.getElementById('mycanvas');
+        if(!canvas.getContext){
+            return;
+        }
+
+        var context = canvas.getContext('2d');
+
+        /*
+         * 矩形1（左上）
+         */
+        //線の色
+        context.strokeStyle = "black";
+        //線の太さ
+        context.lineWidth = 10;
+        //描画
+        context.strokeRect(50, 50, 100, 100);
+
+        /*
+         * 矩形2（右上）
+         */
+        //塗りつぶしの色
+        context.fillStyle = "red";
+        //描画（右上）
+        context.fillRect(250, 50, 100, 100);
+
+        /*
+         * 矩形3（左下）
+         */
+        //矩形の描画（左下）
+        context.fillRect(50, 250, 100, 100);//塗りつぶし
+        context.strokeRect(50, 250, 100, 100);//枠線
+
+        /*
+         * 矩形4（右下）
+         */
+        context.fillRect(250, 250, 100, 100);//塗りつぶし
+        context.clearRect(280, 280, 40, 40);//くり抜き
+    }
+    </script>
+</head>
+<body>
+    <canvas id="mycanvas" width="400" height="400">
+        このブラウザはCanvasに対応していません。
+    </canvas>
+</body>
+</html>
